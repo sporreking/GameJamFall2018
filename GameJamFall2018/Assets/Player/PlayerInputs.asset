@@ -12,52 +12,14 @@ MonoBehaviour:
   m_Name: PlayerInputs
   m_EditorClassIdentifier: 
   InputLeftX:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - P1LeftHandX
+  - P2LeftHandX
   InputLeftY:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - P1LeftHandY
+  - P2LeftHandY
   InputRightX:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - P1RightHandX
+  - P2RightHandX
   InputRightY:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - P1RightHandY
+  - P2RightHandY

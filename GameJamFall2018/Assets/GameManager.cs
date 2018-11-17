@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour {
         Players = new List<GameObject>();
         for (int i = 0; i < NumberOfPlayers; i++)
         {
-            GameObject playerObj = Instantiate(PlayerPrefab);
+            Transform spawn = GameObject.Find("PlayerSpawnpoints").transform.GetChild(i);
+            GameObject playerObj = Instantiate(PlayerPrefab, spawn);
 
             playerObj.GetComponent<Player>().PlayerInputIndex = i;
 
