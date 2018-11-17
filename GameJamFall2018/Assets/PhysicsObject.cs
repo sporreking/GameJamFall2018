@@ -18,7 +18,7 @@ public class PhysicsObject : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = InitialVelocity;
         rb.angularVelocity = InitalAngularVelocity;
-        rb.gravityScale = 0.0F;
+        rb.gravityScale = 0.3F;
 
         timewarpers = new List<Timewarper>();
 
@@ -43,14 +43,13 @@ public class PhysicsObject : MonoBehaviour
             Vector2 toPoint = (Vector2)tw.transform.position - rb.position;
             newTimeDistortion += TimeDistortion(toPoint.magnitude, tw.getWarpDistance()) * tw.getWarpFactor();
         }
-        Debug.Log(newTimeDistortion);
-
-
+        
         float deltaTimeDistortion = newTimeDistortion - timeDistortion;
         timeDistortion = newTimeDistortion;
 
         rb.AddForce(-rb.velocity * rb.mass * deltaTimeDistortion * Time.fixedDeltaTime * 200F);
         rb.AddTorque(-Equalizer(rb.angularVelocity) * deltaTimeDistortion * Time.fixedDeltaTime * 1F);
+        rb.gravityScale = deltaTimeDistortion + 1F;
 
     }
 
