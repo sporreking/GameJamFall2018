@@ -49,7 +49,7 @@ public class PhysicsObject : MonoBehaviour
 
         rb.AddForce(-rb.velocity * rb.mass * deltaTimeDistortion * Time.fixedDeltaTime * 200F);
         rb.AddTorque(-Equalizer(rb.angularVelocity) * deltaTimeDistortion * Time.fixedDeltaTime * 1F);
-        rb.gravityScale = deltaTimeDistortion + 1F;
+        rb.gravityScale = 0.3F*(deltaTimeDistortion + 1F);
 
     }
 

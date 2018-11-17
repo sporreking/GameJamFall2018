@@ -130,7 +130,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4071308902671204, guid: 8f9596ba8121f48428c350bcfa016984, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.59
+      value: 1.47
       objectReference: {fileID: 0}
     - target: {fileID: 114875494362987040, guid: 8f9596ba8121f48428c350bcfa016984,
         type: 2}
@@ -159,11 +159,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4034373592973376, guid: 6972a3a9aec58d74e8cc3d4c46f55516, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.59
+      value: -5.52
       objectReference: {fileID: 0}
     - target: {fileID: 4034373592973376, guid: 6972a3a9aec58d74e8cc3d4c46f55516, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.58
+      value: -0.14
       objectReference: {fileID: 0}
     - target: {fileID: 4034373592973376, guid: 6972a3a9aec58d74e8cc3d4c46f55516, type: 2}
       propertyPath: m_LocalPosition.z
@@ -201,11 +201,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4071308902671204, guid: 8f9596ba8121f48428c350bcfa016984, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.06
+      value: 3.83
       objectReference: {fileID: 0}
     - target: {fileID: 4071308902671204, guid: 8f9596ba8121f48428c350bcfa016984, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.07
+      value: 4.41
       objectReference: {fileID: 0}
     - target: {fileID: 4071308902671204, guid: 8f9596ba8121f48428c350bcfa016984, type: 2}
       propertyPath: m_LocalPosition.z
@@ -257,11 +257,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4034373592973376, guid: 6972a3a9aec58d74e8cc3d4c46f55516, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.08
+      value: 4.11
       objectReference: {fileID: 0}
     - target: {fileID: 4034373592973376, guid: 6972a3a9aec58d74e8cc3d4c46f55516, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.24
+      value: 2.05
       objectReference: {fileID: 0}
     - target: {fileID: 4034373592973376, guid: 6972a3a9aec58d74e8cc3d4c46f55516, type: 2}
       propertyPath: m_LocalPosition.z
