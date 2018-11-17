@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     void Start () {
 
         JoystickNames = Input.GetJoystickNames();
+        Debug.Log("Connected controllers: "+JoystickNames.Length);
         
         NumberOfPlayers = JoystickNames.Length;
 
@@ -29,6 +30,16 @@ public class GameManager : MonoBehaviour {
 
             Players.Add(playerObj);
     
+        }
+
+        if (NumberOfPlayers == 0)
+        {
+            Transform spawn = GameObject.Find("PlayerSpawnpoints").transform.GetChild(0);
+            GameObject playerObj = Instantiate(PlayerPrefab, spawn);
+
+            playerObj.GetComponent<Player>().PlayerInputIndex = 0;
+
+            Players.Add(playerObj);
         }
     }
 	
