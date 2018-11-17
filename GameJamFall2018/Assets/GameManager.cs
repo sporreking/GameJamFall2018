@@ -8,27 +8,44 @@ public class GameManager : MonoBehaviour {
     private int NumberOfPlayers;
     private List<GameObject> Players;
 
-    private string[] JoystickNames;
+    private List<string> JoystickNames;
 
     // Use this for initialization
     void Start () {
 
-        JoystickNames = Input.GetJoystickNames();
+        JoystickNames = new List<string>();
+        string[] tempJoystickNames = Input.GetJoystickNames();
+        foreach (string joyName in tempJoystickNames)
+        {
+            if (joyName != "")
+            {
+                JoystickNames.Add(joyName);
+            }
+        }
         
-        NumberOfPlayers = JoystickNames.Length;
+        Debug.Log("Connected controllers: "+JoystickNames.Count);
+        
+        NumberOfPlayers = JoystickNames.Count;
+        if (NumberOfPlayers == 0)
+        {
+            NumberOfPlayers = 1; // Debug player for when no controllers connected
+        }
 
         // Instatiate players
 
         Players = new List<GameObject>();
         for (int i = 0; i < NumberOfPlayers; i++)
         {
-            GameObject playerObj = Instantiate(PlayerPrefab);
+            Transform spawn = GameObject.Find("PlayerSpawnpoints").transform.GetChild(i);
+            GameObject playerObj = Instantiate(PlayerPrefab, spawn);
+            playerObj.GetComponent<Player>().PlayerGraphics = spawn.GetComponent<SpawnPoint>().Texture;
 
             playerObj.GetComponent<Player>().PlayerInputIndex = i;
 
             Players.Add(playerObj);
     
         }
+
     }
 	
 	// Update is called once per frame
