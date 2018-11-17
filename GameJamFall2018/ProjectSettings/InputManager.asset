@@ -369,7 +369,7 @@ InputManager:
     dead: 0.19
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 3
     joyNum: 2
@@ -401,12 +401,12 @@ InputManager:
     dead: 0.19
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: P2LeftHandY
+    m_Name: P2RightHandY
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 

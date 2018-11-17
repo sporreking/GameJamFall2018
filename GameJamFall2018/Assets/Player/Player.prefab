@@ -493,7 +493,7 @@ Transform:
   m_GameObject: {fileID: 1907922820179164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.662, y: -0.517, z: 0}
-  m_LocalScale: {x: 1.44963, y: 1.44963, z: 1.44963}
+  m_LocalScale: {x: 2, y: 2, z: 1.44963}
   m_Children:
   - {fileID: 4968879352858806}
   - {fileID: 4236403358141586}
@@ -1627,6 +1627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerInput: {fileID: 11400000, guid: 39d1ab9ec68210440a054814670f1c9b, type: 2}
+  PlayerInputIndex: 0
   PlayerGraphics: {fileID: 11400000, guid: 4ffd8d84fecb4084e9b864d97cc5e6dc, type: 2}
   Speed: 5
   LeftHand: {fileID: 1576813559541860}
