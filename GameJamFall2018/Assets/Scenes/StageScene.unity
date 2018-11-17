@@ -221,6 +221,7 @@ MonoBehaviour:
     type: 2}
   WeaponPrefab: {fileID: 1444698983432280, guid: c7939af7de7f99842b9374d2b3d6f827,
     type: 2}
+  MainCamera: {fileID: 519420031}
   WeaponSpawnInterval: 10
 --- !u!4 &456350586
 Transform:

@@ -6,6 +6,12 @@ public class GameManager : MonoBehaviour {
     public GameObject PlayerPrefab;
     public GameObject WeaponPrefab;
 
+    public Camera MainCamera;
+    private Vector3 CameraSpeed;
+    private Vector3 CameraAcceleration;
+    private Vector3 CameraMins;
+    private Vector3 CameraMaxes;
+
     public float WeaponSpawnInterval;
     private float LastWeaponSpawn;
 
@@ -16,13 +22,20 @@ public class GameManager : MonoBehaviour {
     private List<string> JoystickNames;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
+
+        CameraSpeed = new Vector3(0, 0, 0);
+        CameraAcceleration = new Vector3(0, 0, 0);
+        CameraMins = new Vector3(0, 0, 0);
+        CameraMaxes = new Vector3(0, 0, 0);
 
         LastWeaponSpawn = Time.time;
+        Weapons = new List<GameObject>();
 
+        // Player handling
 
         JoystickNames = new List<string>();
-        Weapons = new List<GameObject>();
+        
 
         string[] tempJoystickNames = Input.GetJoystickNames();
         foreach (string joyName in tempJoystickNames)
@@ -61,10 +74,47 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+        Vector2 averagePostition = new Vector2(0, 0);
+        Vector2 maxPos = new Vector2(0, 0);
+        Vector2 minPos = new Vector2(0, 0);
+
+        // Player loop
+        foreach (GameObject playerObj in Players)
+        {
+            averagePostition += (Vector2) playerObj.transform.position / NumberOfPlayers;
+            maxPos = Vector2.Max(maxPos, (Vector2) playerObj.transform.position);
+            minPos = Vector2.Min(minPos, (Vector2) playerObj.transform.position);
+        }
+
+        // Position camera
+        Vector3 camPos = MainCamera.transform.position + 10F * CameraSpeed * Time.deltaTime;
+        MainCamera.transform.position = new Vector3(camPos.x, camPos.y, -10f);
+        MainCamera.orthographicSize += CameraSpeed.z * Time.deltaTime;
+
+        Vector2 posAcc =  averagePostition - (Vector2) camPos;
+        float diff = ((maxPos - minPos).magnitude*0.2F + 3.1F - MainCamera.orthographicSize) *5;
+
+        CameraAcceleration = new Vector3(posAcc.x, posAcc.y, diff);
+
+        CameraSpeed += CameraAcceleration * Time.deltaTime * 0.2F;
+        CameraSpeed *= Mathf.Pow(0.0075F, Time.deltaTime);
+
+        if (Input.GetKey("up"))
+        {
+            MainCamera.orthographicSize += .1F;
+
+
+        }
+        if (Input.GetKey("down"))
+        {
+            MainCamera.orthographicSize -= .1F;
+        }
+
+        Debug.Log(MainCamera.orthographicSize + " " + (maxPos - minPos).magnitude);
+
 
         // Weapon spawning
-		if (LastWeaponSpawn + WeaponSpawnInterval < Time.time)
+        if (LastWeaponSpawn + WeaponSpawnInterval < Time.time)
         {
             LastWeaponSpawn = Time.time;
 
