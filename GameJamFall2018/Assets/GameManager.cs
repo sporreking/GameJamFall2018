@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour {
         Debug.Log("Connected controllers: "+JoystickNames.Count);
         
         NumberOfPlayers = JoystickNames.Count;
+        if (NumberOfPlayers == 0)
+        {
+            NumberOfPlayers = 1; // Debug player for when no controllers connected
+        }
 
         // Instatiate players
 
@@ -34,6 +38,7 @@ public class GameManager : MonoBehaviour {
         {
             Transform spawn = GameObject.Find("PlayerSpawnpoints").transform.GetChild(i);
             GameObject playerObj = Instantiate(PlayerPrefab, spawn);
+            playerObj.GetComponent<Player>().PlayerGraphics = spawn.GetComponent<SpawnPoint>().Texture;
 
             playerObj.GetComponent<Player>().PlayerInputIndex = i;
 
@@ -41,15 +46,6 @@ public class GameManager : MonoBehaviour {
     
         }
 
-        if (NumberOfPlayers == 0)
-        {
-            Transform spawn = GameObject.Find("PlayerSpawnpoints").transform.GetChild(0);
-            GameObject playerObj = Instantiate(PlayerPrefab, spawn);
-
-            playerObj.GetComponent<Player>().PlayerInputIndex = 0;
-
-            Players.Add(playerObj);
-        }
     }
 	
 	// Update is called once per frame

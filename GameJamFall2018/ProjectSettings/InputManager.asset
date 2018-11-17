@@ -406,7 +406,7 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: P2LeftHandY
+    m_Name: P2RightHandY
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
