@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
     private float LastWeaponSpawn;
 
     private int NumberOfPlayers;
+    private int NumberOfAlivePlayers;
     private List<GameObject> Players;
     private List<GameObject> Weapons;
 
@@ -26,8 +27,6 @@ public class GameManager : MonoBehaviour {
 
         CameraSpeed = new Vector3(0, 0, 0);
         CameraAcceleration = new Vector3(0, 0, 0);
-        CameraMins = new Vector3(0, 0, 0);
-        CameraMaxes = new Vector3(0, 0, 0);
 
         LastWeaponSpawn = Time.time;
         Weapons = new List<GameObject>();
@@ -49,6 +48,8 @@ public class GameManager : MonoBehaviour {
         Debug.Log("Connected controllers: "+JoystickNames.Count);
         
         NumberOfPlayers = JoystickNames.Count;
+        NumberOfAlivePlayers = JoystickNames.Count;
+
         if (NumberOfPlayers == 0)
         {
             NumberOfPlayers = 1; // Debug player for when no controllers connected
@@ -81,9 +82,19 @@ public class GameManager : MonoBehaviour {
         // Player loop
         foreach (GameObject playerObj in Players)
         {
-            averagePostition += (Vector2) playerObj.transform.position / NumberOfPlayers;
+            Player p = playerObj.GetComponent<Player>();
+            Vector2 playerPosition = playerObj.transform.position;
+            averagePostition += playerPosition / NumberOfPlayers;
             maxPos = Vector2.Max(maxPos, (Vector2) playerObj.transform.position);
             minPos = Vector2.Min(minPos, (Vector2) playerObj.transform.position);
+
+            if (p.Health <= 0)
+            {
+                NumberOfAlivePlayers -= 1;
+                Debug.Log("PLAYER "+p.PlayerInputIndex+" DIED. YEEEAAHH!");
+            }
+
+
         }
 
         // Position camera

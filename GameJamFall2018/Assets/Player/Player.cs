@@ -7,6 +7,8 @@ public class Player : MonoBehaviour {
     public PlayerInputSO PlayerInput;
     public int PlayerInputIndex;
 
+    public int Health;
+
     public PlayerGraphicsSO PlayerGraphics;
 
     public float Speed;
@@ -76,6 +78,16 @@ public class Player : MonoBehaviour {
         move += Speed * RightHand.GetComponent<Hand>().Move() * Time.fixedDeltaTime;
 
         transform.Translate(new Vector2(Mathf.Clamp(move, - Speed * Time.fixedDeltaTime, Speed * Time.fixedDeltaTime), 0));
+
+        if (transform.position.y < -10F)
+        {
+            Health = 0;
+        }
+    }
+
+    public void ChangeHealth(int x)
+    {
+        Health += x;
     }
 
 }
