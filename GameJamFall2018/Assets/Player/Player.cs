@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public PlayerInputSO PlayerInput;
+    public int PlayerInputIndex;
 
     public float Speed;
 
@@ -20,10 +21,11 @@ public class Player : MonoBehaviour {
     public void Start() {
 
         // Load values from player input SO
-        LeftHand.GetComponent<Hand>().InputX = PlayerInput.InputLeftX;
-        LeftHand.GetComponent<Hand>().InputY = PlayerInput.InputLeftY;
-        RightHand.GetComponent<Hand>().InputX = PlayerInput.InputRightX;
-        RightHand.GetComponent<Hand>().InputY = PlayerInput.InputRightY;
+        LeftHand.GetComponent<Hand>().InputX = PlayerInput.InputLeftX[PlayerInputIndex];
+        LeftHand.GetComponent<Hand>().InputY = PlayerInput.InputLeftY[PlayerInputIndex];
+        RightHand.GetComponent<Hand>().InputX = PlayerInput.InputRightX[PlayerInputIndex];
+        RightHand.GetComponent<Hand>().InputY = PlayerInput.InputRightY[PlayerInputIndex];
+
     }
 
     public void FixedUpdate() {

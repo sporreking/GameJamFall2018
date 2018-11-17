@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114767026141502736}
   - component: {fileID: 212704082692859420}
   - component: {fileID: 114885892845711192}
+  - component: {fileID: 50793091957605518}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -40,6 +41,7 @@ GameObject:
   - component: {fileID: 114917659316033374}
   - component: {fileID: 212543949539787854}
   - component: {fileID: 114198271212278088}
+  - component: {fileID: 50155698467278496}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -55,6 +57,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4872712306699724}
+  - component: {fileID: 114909607362336406}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -103,6 +106,46 @@ Transform:
   m_Father: {fileID: 4872712306699724}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50155698467278496
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1576813559541860}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 2
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!50 &50793091957605518
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1144993799910800}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 2
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &114198271212278088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,6 +157,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e205c07db49a94bb24c7b098515d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Parent: {fileID: 0}
+  RecoilFactor: 0
+  MaxSpeed: 0
+  InputX: 
+  InputY: 
 --- !u!114 &114767026141502736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,6 +173,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e205c07db49a94bb24c7b098515d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Parent: {fileID: 0}
+  RecoilFactor: 0.5
+  MaxSpeed: 1000
+  InputX: 
+  InputY: 
 --- !u!114 &114885892845711192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,6 +189,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e205c07db49a94bb24c7b098515d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Parent: {fileID: 0}
+  RecoilFactor: 0
+  MaxSpeed: 0
+  InputX: 
+  InputY: 
+--- !u!114 &114909607362336406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1907922820179164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df491cdced04334aa44479dcd288785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerInput: {fileID: 11400000, guid: 39d1ab9ec68210440a054814670f1c9b, type: 2}
+  PlayerInputIndex: 0
+  Speed: 5
+  LeftHand: {fileID: 0}
+  RightHand: {fileID: 0}
+  HandRadius: 1
+  MoveBorder: 0.3
+  GroundCheck: {fileID: 0}
 --- !u!114 &114917659316033374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,6 +224,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e205c07db49a94bb24c7b098515d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Parent: {fileID: 0}
+  RecoilFactor: 0.5
+  MaxSpeed: 1000
+  InputX: 
+  InputY: 
 --- !u!212 &212543949539787854
 SpriteRenderer:
   m_ObjectHideFlags: 1
