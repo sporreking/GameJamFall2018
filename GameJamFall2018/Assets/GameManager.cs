@@ -99,20 +99,6 @@ public class GameManager : MonoBehaviour {
         CameraSpeed += CameraAcceleration * Time.deltaTime * 0.2F;
         CameraSpeed *= Mathf.Pow(0.0075F, Time.deltaTime);
 
-        if (Input.GetKey("up"))
-        {
-            MainCamera.orthographicSize += .1F;
-
-
-        }
-        if (Input.GetKey("down"))
-        {
-            MainCamera.orthographicSize -= .1F;
-        }
-
-        Debug.Log(MainCamera.orthographicSize + " " + (maxPos - minPos).magnitude);
-
-
         // Weapon spawning
         if (LastWeaponSpawn + WeaponSpawnInterval < Time.time)
         {
