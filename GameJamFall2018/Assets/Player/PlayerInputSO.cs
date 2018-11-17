@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PlayerInput1", menuName = "Player Input" )]
+[CreateAssetMenu(fileName = "PlayerInput1", menuName = "Player/Player Input" )]
 public class PlayerInputSO : ScriptableObject {
     public string InputLeftX;
     public string InputLeftY;

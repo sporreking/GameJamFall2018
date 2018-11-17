@@ -307,7 +307,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 0
+    axis: 3
     joyNum: 0
   - serializedVersion: 3
     m_Name: P1LeftHandY
@@ -323,7 +323,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 1
+    axis: 4
     joyNum: 0
   - serializedVersion: 3
     m_Name: P1RightHandX
@@ -339,7 +339,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 3
+    axis: 0
     joyNum: 0
   - serializedVersion: 3
     m_Name: P1RightHandY
@@ -355,5 +355,5 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 4
+    axis: 1
     joyNum: 0
