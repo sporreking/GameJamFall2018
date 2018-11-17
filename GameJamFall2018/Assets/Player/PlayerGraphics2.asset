@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c08c546c55d094fb7f2908e45099aa, type: 3}
+  m_Name: PlayerGraphics2
+  m_EditorClassIdentifier: 
+  Head: {fileID: 21300000, guid: e04da22da3cf279429e382168e67046c, type: 3}
+  Neck: {fileID: 21300000, guid: d2010ca52b48bc7498f2c4bb38082939, type: 3}
+  Torso: {fileID: 21300000, guid: 0f2cf3bd03bac5249a3306c15ff14711, type: 3}
+  RUArm: {fileID: 21300000, guid: c7f1526043022534fbd0a65ffc1584ec, type: 3}
+  RLArm: {fileID: 21300000, guid: 74bda6851512d454083798a2053bca60, type: 3}
+  RHand: {fileID: 21300000, guid: de85c650e15014043b08aa41c2f39274, type: 3}
+  LUArm: {fileID: 21300000, guid: 1cb5e0c17f04544469ebdb3a631045e2, type: 3}
+  LLArm: {fileID: 21300000, guid: 162c418b30ac0344c84b9259636acaab, type: 3}
+  LHand: {fileID: 21300000, guid: 78c3ba3da3487eb4bac001ffa858e2d4, type: 3}
+  RULeg: {fileID: 21300000, guid: 7913f767afae8654d848b9c5ff687860, type: 3}
+  RLLeg: {fileID: 21300000, guid: 488b7e53987a41e4e97cb548523d3188, type: 3}
+  RFoot: {fileID: 21300000, guid: 28eb743743802b54fa2e2ff7a800f6b9, type: 3}
+  LULeg: {fileID: 21300000, guid: 46520e0944985a24788e4c9ac2bcaa1e, type: 3}
+  LLLeg: {fileID: 21300000, guid: 08e77a8df40071247b45436dd48011c0, type: 3}
+  LFoot: {fileID: 21300000, guid: 75374545cecb73646a8b118a52a7eaef, type: 3}
