@@ -23,3 +23,6 @@ MonoBehaviour:
   InputRightY:
   - P1RightHandY
   - P2RightHandY
+  InputJump:
+  - P1Jump
+  - P2Jump

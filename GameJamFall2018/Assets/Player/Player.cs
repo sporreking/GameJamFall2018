@@ -17,6 +17,9 @@ public class Player : MonoBehaviour {
     public float HandRadius;
 
     public float MoveBorder;
+
+    public GameObject GroundCheck;
+    public float JumpPower;
     
     public GameObject Head;
 
@@ -76,6 +79,13 @@ public class Player : MonoBehaviour {
         move += Speed * RightHand.GetComponent<Hand>().Move() * Time.fixedDeltaTime;
 
         transform.Translate(new Vector2(Mathf.Clamp(move, - Speed * Time.fixedDeltaTime, Speed * Time.fixedDeltaTime), 0));
+    }
+
+    public void Update() {
+        if (Input.GetButtonDown(PlayerInput.InputJump[PlayerInputIndex]) && GroundCheck.GetComponent<GroundCheck>().Jumps > 0) {
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, JumpPower));
+            GroundCheck.GetComponent<GroundCheck>().Jumps--;
+        }
     }
 
 }

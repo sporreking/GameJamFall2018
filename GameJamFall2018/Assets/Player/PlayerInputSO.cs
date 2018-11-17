@@ -10,4 +10,6 @@ public class PlayerInputSO : ScriptableObject
 
     public List<string> InputRightX;
     public List<string> InputRightY;
+
+    public List<string> InputJump;
 }
