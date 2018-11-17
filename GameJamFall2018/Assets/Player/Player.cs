@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public PlayerInputSO PlayerInput;
+    public int PlayerInputIndex;
 
     public PlayerGraphicsSO PlayerGraphics;
 
@@ -40,12 +41,13 @@ public class Player : MonoBehaviour {
     public GameObject LFoot;
 
     public void Start() {
+        Debug.Log("Creating player: " + PlayerInputIndex);
 
         // Load values from player input SO
-        LeftHand.GetComponent<Hand>().InputX = PlayerInput.InputLeftX;
-        LeftHand.GetComponent<Hand>().InputY = PlayerInput.InputLeftY;
-        RightHand.GetComponent<Hand>().InputX = PlayerInput.InputRightX;
-        RightHand.GetComponent<Hand>().InputY = PlayerInput.InputRightY;
+        LeftHand.GetComponent<Hand>().InputX = PlayerInput.InputLeftX[PlayerInputIndex];
+        LeftHand.GetComponent<Hand>().InputY = PlayerInput.InputLeftY[PlayerInputIndex];
+        RightHand.GetComponent<Hand>().InputX = PlayerInput.InputRightX[PlayerInputIndex];
+        RightHand.GetComponent<Hand>().InputY = PlayerInput.InputRightY[PlayerInputIndex];
 
         // Load graphics from player graphics SO
         Head.GetComponent<SpriteRenderer>().sprite = PlayerGraphics.Head;

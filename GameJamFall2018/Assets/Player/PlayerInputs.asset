@@ -9,9 +9,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d0da5662f19c5f4e8b31483c78ba142, type: 3}
-  m_Name: PlayerInput1
+  m_Name: PlayerInputs
   m_EditorClassIdentifier: 
-  InputLeftX: P1LeftHandX
-  InputLeftY: P1LeftHandY
-  InputRightX: P1RightHandX
-  InputRightY: P1RightHandY
+  InputLeftX:
+  - P1LeftHandX
+  - P2LeftHandX
+  InputLeftY:
+  - P1LeftHandY
+  - P2LeftHandY
+  InputRightX:
+  - P1RightHandX
+  - P2RightHandX
+  InputRightY:
+  - P1RightHandY
+  - P2RightHandY

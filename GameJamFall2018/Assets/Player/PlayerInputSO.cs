@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PlayerInput1", menuName = "Player/Player Input" )]
-public class PlayerInputSO : ScriptableObject {
-    public string InputLeftX;
-    public string InputLeftY;
+[CreateAssetMenu(fileName = "PlayerInputs", menuName = "Player/Player Input")]
+public class PlayerInputSO : ScriptableObject
+{
+    public List<string> InputLeftX;
+    public List<string> InputLeftY;
 
-    public string InputRightX;
-    public string InputRightY;
+    public List<string> InputRightX;
+    public List<string> InputRightY;
 }

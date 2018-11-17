@@ -27,6 +27,10 @@ public class Hand : MonoBehaviour {
 
     // Returns the direction which the player should move in
     public float Move() {
+        if (!body)
+        {
+            return 0;
+        }
 
         if (body.velocity.sqrMagnitude > MaxSpeed * MaxSpeed) {
             Vector2 v = new Vector2(body.velocity.x, body.velocity.y);
