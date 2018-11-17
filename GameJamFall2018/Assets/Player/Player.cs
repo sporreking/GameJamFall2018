@@ -19,6 +19,7 @@ public class Player : MonoBehaviour {
     public GameObject GroundCheck;
 
     public void Start() {
+        Debug.Log("Creating player: "+PlayerInputIndex);
 
         // Load values from player input SO
         LeftHand.GetComponent<Hand>().InputX = PlayerInput.InputLeftX[PlayerInputIndex];

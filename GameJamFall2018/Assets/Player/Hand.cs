@@ -16,7 +16,6 @@ public class Hand : MonoBehaviour {
 
     public void Start() {
         body = GetComponent<Rigidbody2D>();
-        Debug.Log(body);
     }
 
     private float diff(float a, float b) {
@@ -28,6 +27,10 @@ public class Hand : MonoBehaviour {
 
     // Returns the direction which the player should move in
     public float Move() {
+        if (!body)
+        {
+            return 0;
+        }
 
         if (body.velocity.sqrMagnitude > MaxSpeed * MaxSpeed) {
             Vector2 v = new Vector2(body.velocity.x, body.velocity.y);
@@ -36,7 +39,7 @@ public class Hand : MonoBehaviour {
 
             body.velocity = new Vector3(v.x * MaxSpeed, v.y * MaxSpeed, 0);
         }
-        Debug.Log(InputX);
+
         Vector2 m = new Vector2(Input.GetAxis(InputX), Input.GetAxis(InputY));
         Vector3 vel = body.velocity;
         

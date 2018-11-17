@@ -5,28 +5,29 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
     public GameObject PlayerPrefab;
 
+    private int NumberOfPlayers;
+    private List<GameObject> Players;
+
     private string[] JoystickNames;
 
     // Use this for initialization
     void Start () {
+
         JoystickNames = Input.GetJoystickNames();
+        
+        NumberOfPlayers = JoystickNames.Length;
 
+        // Instatiate players
 
-        for (int i = 0; i < JoystickNames.Length; i++)
+        Players = new List<GameObject>();
+        for (int i = 0; i < NumberOfPlayers; i++)
         {
             GameObject playerObj = Instantiate(PlayerPrefab);
-            GameObject leftHand = playerObj.transform.Find("LeftHand").gameObject;
-            GameObject rightHand = playerObj.transform.Find("RightHand").gameObject;
 
-
-            playerObj.GetComponent<Player>().LeftHand = leftHand;
-            playerObj.GetComponent<Player>().RightHand = rightHand;
             playerObj.GetComponent<Player>().PlayerInputIndex = i;
 
-            leftHand.GetComponent<Hand>().Parent = playerObj.GetComponent<Player>();
-            rightHand.GetComponent<Hand>().Parent = playerObj.GetComponent<Player>();
-
-
+            Players.Add(playerObj);
+    
         }
     }
 	
