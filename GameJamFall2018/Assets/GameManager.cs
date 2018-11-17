@@ -66,14 +66,15 @@ public class GameManager : MonoBehaviour {
         // Weapon spawning
 		if (LastWeaponSpawn + WeaponSpawnInterval < Time.time)
         {
-            
             LastWeaponSpawn = Time.time;
-            int index = Random.Range(0, GameObject.Find("WeaponSpawnpoints").transform.childCount);
-            Transform spawn = GameObject.Find("WeaponSpawnpoints").transform.GetChild(index);
 
-            Weapons.Add(Instantiate(WeaponPrefab, spawn));
-
-            Debug.Log("Spawn weapon at point: " + spawn.name + " (index " + index + ")");
+            if (GameObject.Find("WeaponSpawnpoints").transform.childCount != 0)
+            {
+                int index = Random.Range(0, GameObject.Find("WeaponSpawnpoints").transform.childCount);
+                Debug.Log("Spawn weapon at point: " + index);
+                Transform spawn = GameObject.Find("WeaponSpawnpoints").transform.GetChild(index);
+                Weapons.Add(Instantiate(WeaponPrefab, spawn));
+            }        
         }
     }
 }
