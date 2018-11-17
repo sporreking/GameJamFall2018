@@ -8,15 +8,24 @@ public class GameManager : MonoBehaviour {
     private int NumberOfPlayers;
     private List<GameObject> Players;
 
-    private string[] JoystickNames;
+    private List<string> JoystickNames;
 
     // Use this for initialization
     void Start () {
 
-        JoystickNames = Input.GetJoystickNames();
-        Debug.Log("Connected controllers: "+JoystickNames.Length);
+        JoystickNames = new List<string>();
+        string[] tempJoystickNames = Input.GetJoystickNames();
+        foreach (string joyName in tempJoystickNames)
+        {
+            if (joyName != "")
+            {
+                JoystickNames.Add(joyName);
+            }
+        }
         
-        NumberOfPlayers = JoystickNames.Length;
+        Debug.Log("Connected controllers: "+JoystickNames.Count);
+        
+        NumberOfPlayers = JoystickNames.Count;
 
         // Instatiate players
 
