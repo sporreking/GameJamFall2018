@@ -19,4 +19,7 @@ public class PlayerInputSO : ScriptableObject
     public List<string> InputDropLeftWeapon;
     public List<string> InputDropRightWeapon;
 
+    public List<string> InputLeftGrab;
+    public List<string> InputRightGrab;
+
 }

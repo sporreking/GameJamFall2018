@@ -123,6 +123,16 @@ public class Player : MonoBehaviour {
         {
             Debug.Log(PlayerInputIndex+": DropRightWeapon");
         };
+
+        if (Input.GetAxis(PlayerInput.InputLeftGrab[PlayerInputIndex]) == 1F){
+            Debug.Log(PlayerInputIndex + ": LeftGrab");
+        }
+
+        if (Input.GetAxis(PlayerInput.InputRightGrab[PlayerInputIndex]) == 1F)
+        {
+            Debug.Log(PlayerInputIndex + ": RightGrab");
+        }
+
     }
 
 }

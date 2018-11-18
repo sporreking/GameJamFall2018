@@ -38,3 +38,6 @@ MonoBehaviour:
   InputDropRightWeapon:
   - P1DropRightWeapon
   - P2DropRightWeapon
+  InputRightTrigger:
+  - P1RightTrigger
+  - 
