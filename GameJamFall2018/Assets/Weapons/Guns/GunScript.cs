@@ -47,13 +47,14 @@ public class GunScript : MonoBehaviour {
     }
     void shoot()
     {
-        
-        if (shooting)
+        Debug.Log("Hello", this);
+        if (shooting && hand)
         {
-            bulletsLeft--;
             float angleRad = transform.rotation.eulerAngles.z * Mathf.PI / 180;
             GameObject p = Instantiate(gun.Projectile, barell.transform.position, transform.rotation);
+            p.GetComponent<PhysicalProjectile>().self = hand.GetComponentInParent<Player>();
             p.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angleRad) * gun.ProjectileVelocity, Mathf.Sin(angleRad) * gun.ProjectileVelocity);
+            bulletsLeft--;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -91,6 +92,7 @@ public class GunScript : MonoBehaviour {
     public void release() {
         if (hand && hand.weapon)
         {
+            Debug.Log("release");
             GetComponent<FixedJoint2D>().enabled = false;
             GetComponent<Rigidbody2D>().gravityScale = gravityscale;
             GetComponent<Rigidbody2D>().mass = mass;

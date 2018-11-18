@@ -116,36 +116,36 @@ public class Player : MonoBehaviour {
 
         if (Input.GetButtonDown(PlayerInput.InputUseLeftWeapon[PlayerInputIndex]))
         {
-            LeftHand.GetComponent<Hand>().StartUse();
+            RightHand.GetComponent<Hand>().StartUse();
         };
 
 
         if (Input.GetButtonDown(PlayerInput.InputUseRightWeapon[PlayerInputIndex]))
         {
-            RightHand.GetComponent<Hand>().StartUse();
+            LeftHand.GetComponent<Hand>().StartUse();
 
         };
 
         if (Input.GetButtonUp(PlayerInput.InputUseLeftWeapon[PlayerInputIndex]))
         {
-            LeftHand.GetComponent<Hand>().StopUse();
+            RightHand.GetComponent<Hand>().StopUse();
         };
 
 
         if (Input.GetButtonUp(PlayerInput.InputUseRightWeapon[PlayerInputIndex]))
         {
-            RightHand.GetComponent<Hand>().StopUse();
+            LeftHand.GetComponent<Hand>().StopUse();
 
         };
 
         if (Input.GetButtonDown(PlayerInput.InputDropLeftWeapon[PlayerInputIndex]))
         {
-            LeftHand.GetComponent<Hand>().Drop();
+            RightHand.GetComponent<Hand>().Drop();
         };
 
         if (Input.GetButtonDown(PlayerInput.InputDropRightWeapon[PlayerInputIndex]))
         {
-            RightHand.GetComponent<Hand>().Drop();
+            LeftHand.GetComponent<Hand>().Drop();
         };
 
         if (Input.GetAxis(PlayerInput.InputLeftGrab[PlayerInputIndex]) == 1F){
@@ -164,7 +164,7 @@ public class Player : MonoBehaviour {
         Vector3 d = Camera.main.WorldToScreenPoint(t.position);
         d.y = Screen.height - d.y;
         Rect r = new Rect(d, new Vector2(0, 0));
-        Debug.Log(t.position);
+        //Debug.Log(t.position);
         GUI.Label(r, Health+"%", guiStyle);
     }
 

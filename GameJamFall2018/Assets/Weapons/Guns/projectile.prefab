@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 114339722010969350}
   - component: {fileID: 60111191108453440}
   - component: {fileID: 50734708643434248}
-  - component: {fileID: 114067756015345986}
   m_Layer: 0
   m_Name: projectile
   m_TagString: Untagged
@@ -70,7 +69,7 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1351117216828522}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -105,18 +104,6 @@ PolygonCollider2D:
       - {x: 0.08819435, y: 0.010513044}
       - {x: 0.072546184, y: 0.050813176}
       - {x: 0.04156736, y: 0.07977865}
---- !u!114 &114067756015345986
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1351117216828522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ff44f460d33fd4097a9fee6e08ba75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 11400000, guid: aee2cedfd057d6b40803ad6c8516c1cf, type: 2}
 --- !u!114 &114339722010969350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ff44f460d33fd4097a9fee6e08ba75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  self: {fileID: 0}
   projectile: {fileID: 11400000, guid: aee2cedfd057d6b40803ad6c8516c1cf, type: 2}
 --- !u!212 &212564795063660264
 SpriteRenderer:
