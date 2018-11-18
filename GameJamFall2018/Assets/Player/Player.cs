@@ -95,13 +95,34 @@ public class Player : MonoBehaviour {
 
     public void Update() {
         
-        if (Input.GetButtonDown(PlayerInput.InputJump[PlayerInputIndex]) && this.GroundCheck.GetComponent<GroundCheck>().Jumps > 0) {
+        /*if (Input.GetButtonDown(PlayerInput.InputJump[PlayerInputIndex]) && this.GroundCheck.GetComponent<GroundCheck>().Jumps > 0) {
             this.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, JumpPower));
             this.GroundCheck.GetComponent<GroundCheck>().Jumps--;
             Debug.Log(PlayerInput.InputJump[PlayerInputIndex], this);
             Debug.Log(PlayerInputIndex, this);
             Debug.Log(Input.GetButtonDown(PlayerInput.InputJump[PlayerInputIndex]), this);
-        }
+        }*/
+
+        if (Input.GetButtonDown(PlayerInput.InputUseLeftWeapon[PlayerInputIndex]))
+        {
+            Debug.Log(PlayerInputIndex+": UseLeftWeapon");
+        };
+
+
+        if (Input.GetButtonDown(PlayerInput.InputUseRightWeapon[PlayerInputIndex]))
+        {
+            Debug.Log(PlayerInputIndex+": UseRightWeapon");
+        };
+
+        if (Input.GetButtonDown(PlayerInput.InputDropLeftWeapon[PlayerInputIndex]))
+        {
+            Debug.Log(PlayerInputIndex+": DropLeftWeapon");
+        };
+
+        if (Input.GetButtonDown(PlayerInput.InputDropRightWeapon[PlayerInputIndex]))
+        {
+            Debug.Log(PlayerInputIndex+": DropRightWeapon");
+        };
     }
 
 }

@@ -12,4 +12,11 @@ public class PlayerInputSO : ScriptableObject
     public List<string> InputRightY;
 
     public List<string> InputJump;
+
+    public List<string> InputUseLeftWeapon;
+    public List<string> InputUseRightWeapon;
+
+    public List<string> InputDropLeftWeapon;
+    public List<string> InputDropRightWeapon;
+
 }
