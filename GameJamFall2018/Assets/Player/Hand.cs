@@ -15,11 +15,55 @@ public class Hand : MonoBehaviour {
     public GameObject ForcePoint;
 
     private Rigidbody2D body;
+    private SpringJoint2D Grope;
 
     public GameObject weapon;
 
-    public void Start() {
+    
+
+    public void Awake() {
         body = GetComponent<Rigidbody2D>();
+        Grope = GetComponent<SpringJoint2D>();
+    }
+
+    public void FixedUpdate()
+    {
+
+        
+        if (!GrabDetect() && Grope.enabled)
+        {
+            Grope.enabled = false;
+        }
+    }
+
+    public void Triggered(Collider2D collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+        if (GrabDetect())
+        {
+            if (!Grope.enabled && weapon == null)
+            {
+                if (collision.GetComponents<Rigidbody2D>().Length != 0)
+                {
+                    Grope.connectedBody = collision.GetComponent<Rigidbody2D>();
+                }
+
+                Grope.enabled = true;
+            }
+        }
+    }
+
+    private bool GrabDetect()
+    {
+        if (Parent.transform.Find("LeftHand").gameObject == this.gameObject)
+        {
+            return Input.GetAxis(Parent.PlayerInput.InputLeftGrab[Parent.PlayerInputIndex]) == 1F;
+        }
+        else
+        {
+            return Input.GetAxis(Parent.PlayerInput.InputRightGrab[Parent.PlayerInputIndex]) == 1F;
+        }
+        
     }
 
     private float diff(float a, float b) {
