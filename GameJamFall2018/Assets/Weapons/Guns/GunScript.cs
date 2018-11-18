@@ -64,7 +64,7 @@ public class GunScript : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {   
         
-        if (timer <= 0 && collision.gameObject.tag == "Hand")
+        if (timer <= 0 && collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<Hand>())
         {
             //isDropped = false;
             
@@ -90,7 +90,7 @@ public class GunScript : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!hand && collision.gameObject.tag == "Hand")
+        if (!hand && collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<Hand>())
             GetComponent<PolygonCollider2D>().isTrigger = false;
     }
 
