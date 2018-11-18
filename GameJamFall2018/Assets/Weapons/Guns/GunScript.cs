@@ -37,28 +37,24 @@ public class GunScript : MonoBehaviour {
 
         if (timer > 0)
             timer -= Time.deltaTime;
-
-        if (Input.GetKeyDown("up")) {
-            release();
-        }
+        
         if (bulletsLeft<= 0) {
             Object.Destroy(this.gameObject);
-        }
-        if (Input.GetKeyDown("space") && hand) {
-            shooting = !shooting;
+     
 
         }
 
     }
     void shoot()
     {
-        
-        if (shooting)
+        Debug.Log("Hello", this);
+        if (shooting && hand)
         {
-            bulletsLeft--;
             float angleRad = transform.rotation.eulerAngles.z * Mathf.PI / 180;
             GameObject p = Instantiate(gun.Projectile, barell.transform.position, transform.rotation);
+            p.GetComponent<PhysicalProjectile>().self = hand.GetComponentInParent<Player>();
             p.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angleRad) * gun.ProjectileVelocity, Mathf.Sin(angleRad) * gun.ProjectileVelocity);
+            bulletsLeft--;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -66,7 +62,6 @@ public class GunScript : MonoBehaviour {
         
         if (timer <= 0 && collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<Hand>())
         {
-            //isDropped = false;
             
             if (!hand) {
                 Hand h = collision.gameObject.GetComponent<Hand>();
@@ -94,9 +89,10 @@ public class GunScript : MonoBehaviour {
             GetComponent<PolygonCollider2D>().isTrigger = false;
     }
 
-    private void release() {
+    public void release() {
         if (hand && hand.weapon)
         {
+            Debug.Log("release");
             GetComponent<FixedJoint2D>().enabled = false;
             GetComponent<Rigidbody2D>().gravityScale = gravityscale;
             GetComponent<Rigidbody2D>().mass = mass;
@@ -107,5 +103,14 @@ public class GunScript : MonoBehaviour {
         }
         
 
+    }
+    public void StartShooting()
+    {
+        shooting = true;
+    }
+
+    public void StopShooting() {
+
+        shooting = false;
     }
 }

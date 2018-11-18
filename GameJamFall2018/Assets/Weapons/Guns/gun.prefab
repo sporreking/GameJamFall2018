@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 11400000, guid: 32b3f36502b8e8b4a92862fbe25d0fc2, type: 2}
+  DropTimer: 2
 --- !u!212 &212291498979182928
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -73,6 +73,39 @@ public class Hand : MonoBehaviour {
         return a - b;
     }
 
+    public void StartUse() {
+        if (weapon) {
+            GunScript g = weapon.GetComponent<GunScript>();
+            if (g)
+            {
+                g.StartShooting();
+            }
+
+        }
+    }
+
+    public void StopUse() {
+        if (weapon) {
+            GunScript g = weapon.GetComponent<GunScript>();
+            if (g) {
+                g.StopShooting();
+            }
+        }
+
+    }
+    public void Drop()
+    {
+        if (weapon)
+        {
+            GunScript g = weapon.GetComponent<GunScript>();
+            if (g)
+            {
+                g.release();
+            }
+        }
+
+    }
+
     // Returns the direction which the player should move in
     public float Move() {
         if (!body)

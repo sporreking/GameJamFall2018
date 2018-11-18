@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -84,11 +85,28 @@ public class GameManager : MonoBehaviour {
 
             if (p.Health <= 0)
             {
+
+                GameObject w = p.LeftHand.GetComponent<Hand>().weapon;
+                if (w) {
+                    GunScript g = w.GetComponent<GunScript>();
+                    if (g) {
+                        g.release();
+                        g.GetComponent<PolygonCollider2D>().isTrigger = false;
+                    }
+                }
+                w = p.RightHand.GetComponent<Hand>().weapon;
+                if (w) {
+                    GunScript g = w.GetComponent<GunScript>();
+                    if (g)
+                    {
+                        g.release();
+                        g.GetComponent<PolygonCollider2D>().isTrigger = false;
+                    }
+                }
                 NumberOfAlivePlayers -= 1;
                 int id = p.PlayerInputIndex;
 
                 int deaths = Players[i].GetComponent<Player>().Deaths + 1; // This doesn't and I have no idea why.
-
                 Destroy(playerObj); // Don't use p from here
                 Players[i] = SpawnPlayer(id);
                 Players[i].GetComponent<Player>().Deaths = deaths;
