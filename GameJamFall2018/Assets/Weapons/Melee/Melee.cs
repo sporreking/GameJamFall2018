@@ -14,7 +14,7 @@ public class Melee : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.ChangeHealth(damage);
+            //collision.gameObject.ChangeHealth(damage);
             // Play sound.
         }
     }
