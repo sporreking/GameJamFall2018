@@ -10,11 +10,11 @@ public class Melee : MonoBehaviour {
 		
 	}
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "player")
+        if (collision.gameObject.tag == "Player")
         {
-            //collision.gameObject.applyDamage(damage);
+            collision.gameObject.ChangeHealth(damage);
             // Play sound.
         }
     }
