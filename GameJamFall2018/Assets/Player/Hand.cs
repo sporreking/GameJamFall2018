@@ -38,11 +38,11 @@ public class Hand : MonoBehaviour {
 
     public void Triggered(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
-        if (GrabDetect())
+        if (GrabDetect() && (collision.gameObject.transform.parent != transform.parent || collision.gameObject != transform.parent))
         {
             if (!Grope.enabled && weapon == null)
             {
+                Debug.Log("Grabbing "+collision.tag);
                 if (collision.GetComponents<Rigidbody2D>().Length != 0)
                 {
                     Grope.connectedBody = collision.GetComponent<Rigidbody2D>();
