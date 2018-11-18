@@ -1686,12 +1686,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerInput: {fileID: 11400000, guid: 39d1ab9ec68210440a054814670f1c9b, type: 2}
   PlayerInputIndex: 0
+  Health: 100
   PlayerGraphics: {fileID: 11400000, guid: 4ffd8d84fecb4084e9b864d97cc5e6dc, type: 2}
   Speed: 5
   LeftHand: {fileID: 1576813559541860}
   RightHand: {fileID: 1144993799910800}
   HandRadius: 2
   MoveBorder: 0.3
+  GroundCheck: {fileID: 0}
+  JumpPower: 0
   Head: {fileID: 1929721369669690}
   Neck: {fileID: 1601544807361566}
   Torso: {fileID: 1603047724569724}
