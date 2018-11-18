@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Name: Gun1
   m_EditorClassIdentifier: Assembly-CSharp::Gun
   name: Glock
-  Shooting: 1
+  Shooting: 0
   Projectile: {fileID: 1351117216828522, guid: 615da71a9a9c23e4e85dcb3918ab49ad, type: 2}
   ProjectileVelocity: 25
   BarrelPosition: {x: 0.755, y: 0.352}
   BulletsPerSecond: 4
   sprite: {fileID: 21300000, guid: 79248019de458bd4caca84906a95147f, type: 3}
   GrabPosition: {x: -0.37, y: -0.15}
+  AmmoCount: 10
