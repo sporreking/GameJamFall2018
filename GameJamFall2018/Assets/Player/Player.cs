@@ -116,23 +116,36 @@ public class Player : MonoBehaviour {
 
         if (Input.GetButtonDown(PlayerInput.InputUseLeftWeapon[PlayerInputIndex]))
         {
-            Debug.Log(PlayerInputIndex+": UseLeftWeapon");
+            LeftHand.GetComponent<Hand>().StartUse();
         };
 
 
         if (Input.GetButtonDown(PlayerInput.InputUseRightWeapon[PlayerInputIndex]))
         {
-            Debug.Log(PlayerInputIndex+": UseRightWeapon");
+            RightHand.GetComponent<Hand>().StartUse();
+
+        };
+
+        if (Input.GetButtonUp(PlayerInput.InputUseLeftWeapon[PlayerInputIndex]))
+        {
+            LeftHand.GetComponent<Hand>().StopUse();
+        };
+
+
+        if (Input.GetButtonUp(PlayerInput.InputUseRightWeapon[PlayerInputIndex]))
+        {
+            RightHand.GetComponent<Hand>().StopUse();
+
         };
 
         if (Input.GetButtonDown(PlayerInput.InputDropLeftWeapon[PlayerInputIndex]))
         {
-            Debug.Log(PlayerInputIndex+": DropLeftWeapon");
+            LeftHand.GetComponent<Hand>().Drop();
         };
 
         if (Input.GetButtonDown(PlayerInput.InputDropRightWeapon[PlayerInputIndex]))
         {
-            Debug.Log(PlayerInputIndex+": DropRightWeapon");
+            RightHand.GetComponent<Hand>().Drop();
         };
 
         if (Input.GetAxis(PlayerInput.InputLeftGrab[PlayerInputIndex]) == 1F){

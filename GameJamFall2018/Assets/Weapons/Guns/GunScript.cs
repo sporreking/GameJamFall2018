@@ -37,15 +37,10 @@ public class GunScript : MonoBehaviour {
 
         if (timer > 0)
             timer -= Time.deltaTime;
-
-        if (Input.GetKeyDown("up")) {
-            release();
-        }
+        
         if (bulletsLeft<= 0) {
             Object.Destroy(this.gameObject);
-        }
-        if (Input.GetKeyDown("space") && hand) {
-            shooting = !shooting;
+     
 
         }
 
@@ -66,7 +61,6 @@ public class GunScript : MonoBehaviour {
         
         if (timer <= 0 && collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<Hand>())
         {
-            //isDropped = false;
             
             if (!hand) {
                 Hand h = collision.gameObject.GetComponent<Hand>();
@@ -94,7 +88,7 @@ public class GunScript : MonoBehaviour {
             GetComponent<PolygonCollider2D>().isTrigger = false;
     }
 
-    private void release() {
+    public void release() {
         if (hand && hand.weapon)
         {
             GetComponent<FixedJoint2D>().enabled = false;
@@ -107,5 +101,14 @@ public class GunScript : MonoBehaviour {
         }
         
 
+    }
+    public void StartShooting()
+    {
+        shooting = true;
+    }
+
+    public void StopShooting() {
+
+        shooting = false;
     }
 }
