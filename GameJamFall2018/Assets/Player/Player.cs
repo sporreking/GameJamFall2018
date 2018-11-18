@@ -10,6 +10,8 @@ public class Player : MonoBehaviour {
     public int Health;
     public int Deaths;
 
+    private GUIStyle guiStyle;
+
     public PlayerGraphicsSO PlayerGraphics;
 
     public float Speed;
@@ -72,6 +74,10 @@ public class Player : MonoBehaviour {
         LULeg.GetComponent<SpriteRenderer>().sprite = PlayerGraphics.LULeg;
         LLLeg.GetComponent<SpriteRenderer>().sprite = PlayerGraphics.LLLeg;
         LFoot.GetComponent<SpriteRenderer>().sprite = PlayerGraphics.LFoot;
+
+        guiStyle = new GUIStyle();
+        guiStyle.normal.textColor = Color.red;
+        guiStyle.fontSize = 22;
         
     }
 
@@ -104,6 +110,18 @@ public class Player : MonoBehaviour {
             Debug.Log(PlayerInputIndex, this);
             Debug.Log(Input.GetButtonDown(PlayerInput.InputJump[PlayerInputIndex]), this);
         }
+
+
+    }
+
+    public void OnGUI()
+    {
+        Transform t = this.transform.Find("HealthBar").transform;
+        Vector3 d = Camera.main.WorldToScreenPoint(t.position);
+        d.y = Screen.height - d.y;
+        Rect r = new Rect(d, new Vector2(0, 0));
+        Debug.Log(t.position);
+        GUI.Label(r, Health+"%", guiStyle);
     }
 
 }
