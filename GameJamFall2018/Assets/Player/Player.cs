@@ -49,7 +49,11 @@ public class Player : MonoBehaviour {
     public GameObject LFoot;
 
     public void Awake() {
-        Deaths = 0;
+        Deaths = 0;       
+    }
+
+    public void Start()
+    {
         Debug.Log("Creating player: " + PlayerInputIndex);
 
         // Load values from player input SO
@@ -78,7 +82,6 @@ public class Player : MonoBehaviour {
         guiStyle = new GUIStyle();
         guiStyle.normal.textColor = Color.red;
         guiStyle.fontSize = 22;
-        
     }
 
     public void FixedUpdate() {
@@ -89,11 +92,11 @@ public class Player : MonoBehaviour {
         move += Speed * RightHand.GetComponent<Hand>().Move() * Time.fixedDeltaTime;
 
         transform.Translate(new Vector2(Mathf.Clamp(move, - Speed * Time.fixedDeltaTime, Speed * Time.fixedDeltaTime), 0));
+    }
 
-        if (transform.position.y < -10F)
-        {
-            Health = 0;
-        }
+    public void Kill()
+    {
+        Health = 0;
     }
 
     public void ChangeHealth(int x)

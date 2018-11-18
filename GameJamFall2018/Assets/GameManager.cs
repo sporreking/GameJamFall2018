@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour {
         MainCamera.orthographicSize += CameraSpeed.z * Time.deltaTime;
 
         Vector2 posAcc =  averagePostition - (Vector2) camPos;
-        float diff = ((maxPos - minPos).magnitude*0.3F + 2F - MainCamera.orthographicSize) *5;
+        float diff = ((maxPos - minPos).magnitude*0.5F + 2F - MainCamera.orthographicSize) *15;
 
         CameraAcceleration = new Vector3(posAcc.x, posAcc.y, diff);
 
