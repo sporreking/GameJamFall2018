@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
 
     private int NumberOfPlayers;
     private int NumberOfAlivePlayers;
-    private List<GameObject> Players;
+    private GameObject[] Players;
     private List<GameObject> Weapons;
 
     private List<string> JoystickNames;
@@ -58,17 +58,10 @@ public class GameManager : MonoBehaviour {
 
         // Instatiate players
 
-        Players = new List<GameObject>();
+        Players = new GameObject[NumberOfPlayers];
         for (int i = 0; i < NumberOfPlayers; i++)
         {
-            Transform spawn = GameObject.Find("PlayerSpawnpoints").transform.GetChild(i);
-            GameObject playerObj = Instantiate(PlayerPrefab, spawn);
-            playerObj.GetComponent<Player>().PlayerGraphics = spawn.GetComponent<SpawnPoint>().Texture;
-
-            playerObj.GetComponent<Player>().PlayerInputIndex = i;
-
-            Players.Add(playerObj);
-    
+            SpawnPlayer(i);    
         }
 
     }
@@ -80,8 +73,9 @@ public class GameManager : MonoBehaviour {
         Vector2 minPos = new Vector2(0, 0);
 
         // Player loop
-        foreach (GameObject playerObj in Players)
+        for (int i = 0; i<Players.Length; i++)
         {
+            GameObject playerObj = Players[i];
             Player p = playerObj.GetComponent<Player>();
             Vector2 playerPosition = playerObj.transform.position;
             averagePostition += playerPosition / NumberOfPlayers;
@@ -91,7 +85,12 @@ public class GameManager : MonoBehaviour {
             if (p.Health <= 0)
             {
                 NumberOfAlivePlayers -= 1;
-                Debug.Log("PLAYER "+p.PlayerInputIndex+" DIED. YEEEAAHH!");
+                int id = p.PlayerInputIndex;
+                Debug.Log("PLAYER "+id+" DIED. YEEEAAHH!");
+            
+                Destroy(playerObj);
+                Players[i] = SpawnPlayer(id);
+
             }
 
 
@@ -123,5 +122,18 @@ public class GameManager : MonoBehaviour {
                 Weapons.Add(Instantiate(WeaponPrefab, spawn));
             }        
         }
+    }
+
+    private GameObject SpawnPlayer(int id)
+    {
+        Transform spawn = GameObject.Find("PlayerSpawnpoints").transform.GetChild(id);
+        GameObject playerObj = Instantiate(PlayerPrefab, spawn);
+        playerObj.GetComponent<Player>().PlayerGraphics = spawn.GetComponent<SpawnPoint>().Texture;
+
+        playerObj.GetComponent<Player>().PlayerInputIndex = id;
+
+        Players[id] = playerObj;
+        return playerObj;
+
     }
 }
