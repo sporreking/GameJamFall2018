@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - StaticTerrain
+  - Timewarper
+  - Hand
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Player
   - Head & Torso
   - PlayerBox
-  - 
+  - Weapons
   - 
   - 
   - 
@@ -44,6 +45,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Weapon
+    uniqueID: 1260584685
     locked: 0
   - name: Foreground
     uniqueID: 3474019377

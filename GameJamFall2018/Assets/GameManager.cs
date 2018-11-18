@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour {
     private float LastWeaponSpawn;
 
     private int NumberOfPlayers;
-    private List<GameObject> Players;
+    private int NumberOfAlivePlayers;
+    private GameObject[] Players;
     private List<GameObject> Weapons;
 
     private List<string> JoystickNames;
@@ -26,8 +27,6 @@ public class GameManager : MonoBehaviour {
 
         CameraSpeed = new Vector3(0, 0, 0);
         CameraAcceleration = new Vector3(0, 0, 0);
-        CameraMins = new Vector3(0, 0, 0);
-        CameraMaxes = new Vector3(0, 0, 0);
 
         LastWeaponSpawn = Time.time;
         Weapons = new List<GameObject>();
@@ -49,6 +48,8 @@ public class GameManager : MonoBehaviour {
         Debug.Log("Connected controllers: "+JoystickNames.Count);
         
         NumberOfPlayers = JoystickNames.Count;
+        NumberOfAlivePlayers = JoystickNames.Count;
+
         if (NumberOfPlayers == 0)
         {
             NumberOfPlayers = 1; // Debug player for when no controllers connected
@@ -57,17 +58,10 @@ public class GameManager : MonoBehaviour {
 
         // Instatiate players
 
-        Players = new List<GameObject>();
+        Players = new GameObject[NumberOfPlayers];
         for (int i = 0; i < NumberOfPlayers; i++)
         {
-            Transform spawn = GameObject.Find("PlayerSpawnpoints").transform.GetChild(i);
-            GameObject playerObj = Instantiate(PlayerPrefab, spawn);
-            playerObj.GetComponent<Player>().PlayerGraphics = spawn.GetComponent<SpawnPoint>().Texture;
-
-            playerObj.GetComponent<Player>().PlayerInputIndex = i;
-
-            Players.Add(playerObj);
-    
+            SpawnPlayer(i);    
         }
 
     }
@@ -79,11 +73,30 @@ public class GameManager : MonoBehaviour {
         Vector2 minPos = new Vector2(0, 0);
 
         // Player loop
-        foreach (GameObject playerObj in Players)
+        for (int i = 0; i<Players.Length; i++)
         {
-            averagePostition += (Vector2) playerObj.transform.position / NumberOfPlayers;
+            GameObject playerObj = Players[i];
+            Player p = playerObj.GetComponent<Player>();
+            Vector2 playerPosition = playerObj.transform.position;
+            averagePostition += playerPosition / NumberOfPlayers;
             maxPos = Vector2.Max(maxPos, (Vector2) playerObj.transform.position);
             minPos = Vector2.Min(minPos, (Vector2) playerObj.transform.position);
+
+            if (p.Health <= 0)
+            {
+                NumberOfAlivePlayers -= 1;
+                int id = p.PlayerInputIndex;
+
+                int deaths = Players[i].GetComponent<Player>().Deaths + 1; // This doesn't and I have no idea why.
+
+                Destroy(playerObj); // Don't use p from here
+                Players[i] = SpawnPlayer(id);
+                Players[i].GetComponent<Player>().Deaths = deaths;
+
+                Debug.Log("PLAYER " + id + " EXPERIENCED DEATH NUMBER "+ deaths + ". YEEEAAHH!");
+            }
+
+
         }
 
         // Position camera
@@ -92,7 +105,7 @@ public class GameManager : MonoBehaviour {
         MainCamera.orthographicSize += CameraSpeed.z * Time.deltaTime;
 
         Vector2 posAcc =  averagePostition - (Vector2) camPos;
-        float diff = ((maxPos - minPos).magnitude*0.2F + 3.1F - MainCamera.orthographicSize) *5;
+        float diff = ((maxPos - minPos).magnitude*0.3F + 2F - MainCamera.orthographicSize) *5;
 
         CameraAcceleration = new Vector3(posAcc.x, posAcc.y, diff);
 
@@ -112,5 +125,18 @@ public class GameManager : MonoBehaviour {
                 Weapons.Add(Instantiate(WeaponPrefab, spawn));
             }        
         }
+    }
+
+    private GameObject SpawnPlayer(int id)
+    {
+        Transform spawn = GameObject.Find("PlayerSpawnpoints").transform.GetChild(id);
+        GameObject playerObj = Instantiate(PlayerPrefab, spawn);
+        playerObj.GetComponent<Player>().PlayerGraphics = spawn.GetComponent<SpawnPoint>().Texture;
+
+        playerObj.GetComponent<Player>().PlayerInputIndex = id;
+
+        Players[id] = playerObj;
+        return playerObj;
+
     }
 }

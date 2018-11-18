@@ -8,7 +8,6 @@ public class GunSO : ScriptableObject {
     public bool Shooting;
     public GameObject Projectile;
     public float ProjectileVelocity;
-    public float Angle;
     public Vector2 BarrelPosition;
     public float BulletsPerSecond;
     public Sprite sprite;

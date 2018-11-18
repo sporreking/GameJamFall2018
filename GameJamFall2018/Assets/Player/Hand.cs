@@ -12,6 +12,8 @@ public class Hand : MonoBehaviour {
     public string InputX;
     public string InputY;
 
+    public GameObject ForcePoint;
+
     private Rigidbody2D body;
 
     public void Start() {
@@ -43,8 +45,10 @@ public class Hand : MonoBehaviour {
         Vector2 m = new Vector2(Input.GetAxis(InputX), Input.GetAxis(InputY));
         Vector3 vel = body.velocity;
         
-        body.AddForce(new Vector2(MaxSpeed * m.x * diff(m.x, Mathf.Pow(vel.x / MaxSpeed, 3)) * Time.fixedDeltaTime,
-            MaxSpeed * m.y * diff(m.y, Mathf.Pow(vel.y / MaxSpeed, 3)) * Time.fixedDeltaTime));
+        
+        body.AddForceAtPosition(new Vector2(MaxSpeed * m.x * diff(m.x, Mathf.Pow(vel.x / MaxSpeed, 3)) * Time.fixedDeltaTime,
+            MaxSpeed * m.y * diff(m.y, Mathf.Pow(vel.y / MaxSpeed, 3)) * Time.fixedDeltaTime),
+            new Vector2(ForcePoint.transform.position.x, ForcePoint.transform.position.y));
 
         if (transform.localPosition.sqrMagnitude > Parent.HandRadius * Parent.HandRadius) {
 
