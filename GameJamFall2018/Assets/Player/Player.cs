@@ -19,6 +19,9 @@ public class Player : MonoBehaviour {
     public float HandRadius;
 
     public float MoveBorder;
+
+    public GameObject GroundCheck;
+    public float JumpPower;
     
     public GameObject Head;
 
@@ -88,6 +91,17 @@ public class Player : MonoBehaviour {
     public void ChangeHealth(int x)
     {
         Health += x;
+    }
+
+    public void Update() {
+        
+        if (Input.GetButtonDown(PlayerInput.InputJump[PlayerInputIndex]) && this.GroundCheck.GetComponent<GroundCheck>().Jumps > 0) {
+            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, JumpPower));
+            this.GroundCheck.GetComponent<GroundCheck>().Jumps--;
+            Debug.Log(PlayerInput.InputJump[PlayerInputIndex], this);
+            Debug.Log(PlayerInputIndex, this);
+            Debug.Log(Input.GetButtonDown(PlayerInput.InputJump[PlayerInputIndex]), this);
+        }
     }
 
 }

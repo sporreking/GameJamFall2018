@@ -182,6 +182,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1559799737859998, guid: 3b52ccf275eb05649a76e7faa75885b4, type: 2}
+      propertyPath: m_TagString
+      value: StaticTerrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404377945121332, guid: 3b52ccf275eb05649a76e7faa75885b4, type: 2}
+      propertyPath: m_TagString
+      value: StaticTerrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1909419434194748, guid: 3b52ccf275eb05649a76e7faa75885b4, type: 2}
+      propertyPath: m_TagString
+      value: StaticTerrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551264483171206, guid: 3b52ccf275eb05649a76e7faa75885b4, type: 2}
+      propertyPath: m_TagString
+      value: StaticTerrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1275472204552250, guid: 3b52ccf275eb05649a76e7faa75885b4, type: 2}
+      propertyPath: m_TagString
+      value: StaticTerrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b52ccf275eb05649a76e7faa75885b4, type: 2}
   m_IsPrefabAsset: 0
