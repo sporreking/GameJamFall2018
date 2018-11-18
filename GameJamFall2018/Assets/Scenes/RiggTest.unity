@@ -190,3 +190,82 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1306336933
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4165218263000216, guid: dbf28ad20850e83499ce23ed6cac046f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.365252
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165218263000216, guid: dbf28ad20850e83499ce23ed6cac046f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -6.14525
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165218263000216, guid: dbf28ad20850e83499ce23ed6cac046f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165218263000216, guid: dbf28ad20850e83499ce23ed6cac046f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165218263000216, guid: dbf28ad20850e83499ce23ed6cac046f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165218263000216, guid: dbf28ad20850e83499ce23ed6cac046f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165218263000216, guid: dbf28ad20850e83499ce23ed6cac046f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165218263000216, guid: dbf28ad20850e83499ce23ed6cac046f, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 256661893559407104, guid: dbf28ad20850e83499ce23ed6cac046f,
+        type: 2}
+      propertyPath: m_BreakForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 256661893559407104, guid: dbf28ad20850e83499ce23ed6cac046f,
+        type: 2}
+      propertyPath: m_BreakTorque
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 256661893559407104, guid: dbf28ad20850e83499ce23ed6cac046f,
+        type: 2}
+      propertyPath: m_AutoConfigureConnectedAnchor
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbf28ad20850e83499ce23ed6cac046f, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1 &1306336934 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1687625060117216, guid: dbf28ad20850e83499ce23ed6cac046f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1306336933}
+--- !u!255 &1306336935
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1306336934}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: -1.5}
+  m_ConnectedAnchor: {x: -5.365252, y: -6.82025}
+  m_DampingRatio: 0
+  m_Frequency: 0
