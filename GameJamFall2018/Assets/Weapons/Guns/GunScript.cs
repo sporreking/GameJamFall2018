@@ -21,7 +21,7 @@ public class GunScript : MonoBehaviour {
 	void Start () {
         name = "Glock";
         GetComponent<SpriteRenderer>().sprite = gun.sprite;
-        barell =transform.GetChild(0).gameObject;
+        barell = transform.GetChild(0).gameObject;
         barell.transform.localPosition = gun.BarrelPosition;
         InvokeRepeating("shoot", 0, 1 / gun.BulletsPerSecond);
         bulletsLeft = gun.AmmoCount;
@@ -33,15 +33,13 @@ public class GunScript : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update(){
+    void Update() {
 
         if (timer > 0)
             timer -= Time.deltaTime;
         
         if (bulletsLeft<= 0) {
             Object.Destroy(this.gameObject);
-     
-
         }
 
     }
