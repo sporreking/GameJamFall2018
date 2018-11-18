@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4998668195035092}
   - component: {fileID: 212026658119192442}
   m_Layer: 0
-  m_Name: MeleeWeapon
+  m_Name: KnifePref
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

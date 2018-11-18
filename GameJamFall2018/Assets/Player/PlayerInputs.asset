@@ -26,3 +26,21 @@ MonoBehaviour:
   InputJump:
   - P1Jump
   - P2Jump
+  InputUseLeftWeapon:
+  - P1UseLeftWeapon
+  - P2UseLeftWeapon
+  InputUseRightWeapon:
+  - P1UseRightWeapon
+  - P2UseRightWeapon
+  InputDropLeftWeapon:
+  - P1DropLeftWeapon
+  - P2DropLeftWeapon
+  InputDropRightWeapon:
+  - P1DropRightWeapon
+  - P2DropRightWeapon
+  InputLeftGrab:
+  - P1LeftGrab
+  - P2LeftGrab
+  InputRightGrab:
+  - P1RightGrab
+  - P2RightGrab

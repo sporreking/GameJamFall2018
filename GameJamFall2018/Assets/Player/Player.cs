@@ -105,7 +105,7 @@ public class Player : MonoBehaviour {
     }
 
     public void Update() {
-
+        
         if (Input.GetButtonDown(PlayerInput.InputJump[PlayerInputIndex]) && this.GroundCheck.GetComponent<GroundCheck>().Jumps > 0) {
             this.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, JumpPower));
             this.GroundCheck.GetComponent<GroundCheck>().Jumps--;
@@ -114,7 +114,35 @@ public class Player : MonoBehaviour {
             Debug.Log(Input.GetButtonDown(PlayerInput.InputJump[PlayerInputIndex]), this);
         }
 
+        if (Input.GetButtonDown(PlayerInput.InputUseLeftWeapon[PlayerInputIndex]))
+        {
+            Debug.Log(PlayerInputIndex+": UseLeftWeapon");
+        };
 
+
+        if (Input.GetButtonDown(PlayerInput.InputUseRightWeapon[PlayerInputIndex]))
+        {
+            Debug.Log(PlayerInputIndex+": UseRightWeapon");
+        };
+
+        if (Input.GetButtonDown(PlayerInput.InputDropLeftWeapon[PlayerInputIndex]))
+        {
+            Debug.Log(PlayerInputIndex+": DropLeftWeapon");
+        };
+
+        if (Input.GetButtonDown(PlayerInput.InputDropRightWeapon[PlayerInputIndex]))
+        {
+            Debug.Log(PlayerInputIndex+": DropRightWeapon");
+        };
+
+        if (Input.GetAxis(PlayerInput.InputLeftGrab[PlayerInputIndex]) == 1F){
+            Debug.Log(PlayerInputIndex + ": LeftGrab");
+        }
+
+        if (Input.GetAxis(PlayerInput.InputRightGrab[PlayerInputIndex]) == 1F)
+        {
+            Debug.Log(PlayerInputIndex + ": RightGrab");
+        }
     }
 
     public void OnGUI()

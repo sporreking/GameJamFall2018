@@ -12,7 +12,7 @@ public class GunSO : ScriptableObject {
     public float BulletsPerSecond;
     public Sprite sprite;
     public Vector2 GrabPosition;
-
+    public int AmmoCount;
     
 
 
