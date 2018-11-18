@@ -147,15 +147,7 @@ public class Player : MonoBehaviour {
         {
             LeftHand.GetComponent<Hand>().Drop();
         };
-
-        if (Input.GetAxis(PlayerInput.InputLeftGrab[PlayerInputIndex]) == 1F){
-            Debug.Log(PlayerInputIndex + ": LeftGrab");
-        }
-
-        if (Input.GetAxis(PlayerInput.InputRightGrab[PlayerInputIndex]) == 1F)
-        {
-            Debug.Log(PlayerInputIndex + ": RightGrab");
-        }
+        
     }
 
     public void OnGUI()
@@ -164,7 +156,6 @@ public class Player : MonoBehaviour {
         Vector3 d = Camera.main.WorldToScreenPoint(t.position);
         d.y = Screen.height - d.y;
         Rect r = new Rect(d, new Vector2(0, 0));
-        //Debug.Log(t.position);
         GUI.Label(r, Health+"%", guiStyle);
     }
 
