@@ -16,6 +16,8 @@ public class Hand : MonoBehaviour {
 
     private Rigidbody2D body;
 
+    public GameObject weapon;
+
     public void Start() {
         body = GetComponent<Rigidbody2D>();
     }
