@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 212704082692859420}
   - component: {fileID: 50031163057130452}
   - component: {fileID: 60900903829160552}
-  - component: {fileID: 233157759275571882}
+  - component: {fileID: 255117110796645290}
   m_Layer: 8
   m_Name: RightHand
   m_TagString: Player
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 212543949539787854}
   - component: {fileID: 50861081447519504}
   - component: {fileID: 60774014143478270}
-  - component: {fileID: 233514865006149626}
+  - component: {fileID: 255107395935450628}
   m_Layer: 8
   m_Name: LeftHand
   m_TagString: Player
@@ -1825,6 +1825,7 @@ MonoBehaviour:
   InputX: 
   InputY: 
   ForcePoint: {fileID: 1856094405051842}
+  weapon: {fileID: 0}
 --- !u!114 &114917659316033374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1842,6 +1843,7 @@ MonoBehaviour:
   InputX: 
   InputY: 
   ForcePoint: {fileID: 1143250762576516}
+  weapon: {fileID: 0}
 --- !u!212 &212061867991231120
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -2551,29 +2553,6 @@ SpringJoint2D:
   m_Distance: 0.01
   m_DampingRatio: 0.5
   m_Frequency: 10
---- !u!233 &233157759275571882
-HingeJoint2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1144993799910800}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 50840387573560302}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0.13, y: 1.06}
-  m_ConnectedAnchor: {x: -0.05, y: -1.68}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
 --- !u!233 &233168468899205816
 HingeJoint2D:
   m_ObjectHideFlags: 1
@@ -2635,29 +2614,6 @@ HingeJoint2D:
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 1.51}
   m_ConnectedAnchor: {x: 1.6933333, y: -3.45}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
---- !u!233 &233514865006149626
-HingeJoint2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1576813559541860}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 50899274996299394}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0.09, y: 0.87}
-  m_ConnectedAnchor: {x: -0.06, y: -1.7175254}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -2873,3 +2829,37 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 180
     m_UpperAngle: 0
+--- !u!255 &255107395935450628
+FixedJoint2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1576813559541860}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 50899274996299394}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_DampingRatio: 0
+  m_Frequency: 0
+--- !u!255 &255117110796645290
+FixedJoint2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1144993799910800}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 50840387573560302}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_DampingRatio: 0
+  m_Frequency: 0
