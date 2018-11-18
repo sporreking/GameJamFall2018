@@ -86,11 +86,14 @@ public class GameManager : MonoBehaviour {
             {
                 NumberOfAlivePlayers -= 1;
                 int id = p.PlayerInputIndex;
-                Debug.Log("PLAYER "+id+" DIED. YEEEAAHH!");
-            
-                Destroy(playerObj);
-                Players[i] = SpawnPlayer(id);
 
+                int deaths = Players[i].GetComponent<Player>().Deaths + 1; // This doesn't and I have no idea why.
+
+                Destroy(playerObj); // Don't use p from here
+                Players[i] = SpawnPlayer(id);
+                Players[i].GetComponent<Player>().Deaths = deaths;
+
+                Debug.Log("PLAYER " + id + " EXPERIENCED DEATH NUMBER "+ deaths + ". YEEEAAHH!");
             }
 
 

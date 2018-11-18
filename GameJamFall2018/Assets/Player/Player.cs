@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
     public int PlayerInputIndex;
 
     public int Health;
+    public int Deaths;
 
     public PlayerGraphicsSO PlayerGraphics;
 
@@ -45,7 +46,8 @@ public class Player : MonoBehaviour {
     public GameObject LLLeg;
     public GameObject LFoot;
 
-    public void Start() {
+    public void Awake() {
+        Deaths = 0;
         Debug.Log("Creating player: " + PlayerInputIndex);
 
         // Load values from player input SO
@@ -94,7 +96,7 @@ public class Player : MonoBehaviour {
     }
 
     public void Update() {
-        
+
         if (Input.GetButtonDown(PlayerInput.InputJump[PlayerInputIndex]) && this.GroundCheck.GetComponent<GroundCheck>().Jumps > 0) {
             this.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, JumpPower));
             this.GroundCheck.GetComponent<GroundCheck>().Jumps--;
