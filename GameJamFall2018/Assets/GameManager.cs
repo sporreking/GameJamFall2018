@@ -48,13 +48,13 @@ public class GameManager : MonoBehaviour {
         Debug.Log("Connected controllers: "+JoystickNames.Count);
         
         NumberOfPlayers = JoystickNames.Count;
-        NumberOfAlivePlayers = JoystickNames.Count;
+        //NumberOfPlayers = 3;
+        NumberOfAlivePlayers = NumberOfPlayers;
 
         if (NumberOfPlayers == 0)
         {
             NumberOfPlayers = 1; // Debug player for when no controllers connected
         }
-
 
         // Instatiate players
 
@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour {
 
     private GameObject SpawnPlayer(int id)
     {
-        Transform spawn = GameObject.Find("PlayerSpawnpoints").transform.GetChild(id);
+        Transform spawn = GameObject.Find("PlayerSpawnpoints").transform.GetChild(id % GameObject.Find("PlayerSpawnpoints").transform.childCount);
         GameObject playerObj = Instantiate(PlayerPrefab, spawn);
         playerObj.GetComponent<Player>().PlayerGraphics = spawn.GetComponent<SpawnPoint>().Texture;
 

@@ -14,33 +14,44 @@ MonoBehaviour:
   InputLeftX:
   - P1LeftHandX
   - P2LeftHandX
+  - P3LeftHandX
   InputLeftY:
   - P1LeftHandY
   - P2LeftHandY
+  - P3LeftHandY
   InputRightX:
   - P1RightHandX
   - P2RightHandX
+  - P3RightHandX
   InputRightY:
   - P1RightHandY
   - P2RightHandY
+  - P3RightHandY
   InputJump:
   - P1Jump
   - P2Jump
+  - P3Jump
   InputUseLeftWeapon:
   - P1UseLeftWeapon
   - P2UseLeftWeapon
+  - P3UseLeftWeapon
   InputUseRightWeapon:
   - P1UseRightWeapon
   - P2UseRightWeapon
+  - P3UseRightWeapon
   InputDropLeftWeapon:
   - P1DropLeftWeapon
   - P2DropLeftWeapon
+  - P3DropLeftWeapon
   InputDropRightWeapon:
   - P1DropRightWeapon
   - P2DropRightWeapon
+  - P3DropRightWeapon
   InputLeftGrab:
   - P1LeftGrab
   - P2LeftGrab
+  - P3LeftGrab
   InputRightGrab:
   - P1RightGrab
   - P2RightGrab
+  - P3RightGrab
